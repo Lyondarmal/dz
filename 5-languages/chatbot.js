@@ -1,21 +1,21 @@
-const userLanguage = navigator.language.slice(0, 2);
+const userLanguage = prompt('Put in your language').toLowerCase().slice(0, 2);
+
 switch (userLanguage) {
     case 'en':
         console.log('Hello!');
         break;
-     case 'de':
+    case 'de':
         console.log('Hallo!');
         break;
-     case 'fr':
+    case 'fr':
         console.log('Bonjour!');
         break;
-     case 'es':
+    case 'es':
         console.log('Hola!');
         break;
-     case 'ru':
+    case 'ru':
         console.log('Привет!');
         break;
     default:
         console.log('Неизвестный язык');
-};
-
+}
