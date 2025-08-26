@@ -2,41 +2,33 @@ const sumForConvertion = 20;
 const rubleCurrency = 'руб';
 const dollarCurrency = '$';
 const euroCurrency = '€';
-const rubleToDollar = 0.012;
-const dollarToRuble = 80.69;
-const rubleToEuro =  0.011;
-const euroToRuble = 93.70;
-const dollarToEuro = 0.86;
-const euroToDollar = 1.16;
 
+const rates = {
+        RUB: { USD: 0.012, EUR: 0.011 },
+        USD: { RUB: 80.69, EUR 0.86 },
+        EUR: { RUB: 93.70, USD 1.16 }
+};
+const symbols = {
+        RUB: rubleCurrency,
+        USD: dollarCurrency,
+        EUR: euroCurrency
+};
 
-function calculateRubleToDollar(sumForConvertion, rubleToDollar) {
-        return sumForConvertion * rubleToDollar;
+function convertCurrency(sumForConvertion, fromCurrency, toCurrency) {
+        if (fromCurrency === toCurrency) {
+                return sumForConvertion + " " + symbols[toCurrency];
+        }
+        if (rates[fromCurrency] && rates[fromCurrency][toCurrency]) {
+                return (sumForConvertion * rates[fromCurrency][toCurrency]).toFixed(2) + " " + symbols[toCurrency];
+        }
+        return null;
 }
-console.log(calculateRubleToDollar(sumForConvertion, rubleToDollar) + dollarCurrency);
 
-function calculateDollarToRubble(sumForConvertion, dollarToRuble) {
-        return sumForConvertion * dollarToRuble;
-}
-console.log(calculateDollarToRubble(sumForConvertion, dollarToRuble) + rubleCurrency);
 
-function calculateRubleToEuro(sumForConvertion, rubleToEuro) {
-        return sumForConvertion * rubleToEuro;
-}
-console.log(calculateRubleToEuro(sumForConvertion, rubleToEuro) + euroCurrency);
-
-function calculateEuroToRuble(sumForConvertion, euroToRuble) {
-        return sumForConvertion * euroToRuble;
-}
-console.log(calculateEuroToRuble(sumForConvertion, euroToRuble) + rubleCurrency);
-
-function calculateEuroToDollar(sumForConvertion, euroToDollar) {
-        return sumForConvertion * euroToDollar;
-}
-console.log(calculateEuroToDollar(sumForConvertion, euroToDollar) + dollarCurrency);
-
-function calculateDollarToEuro(sumForConvertion, dollarToEuro) {
-        return sumForConvertion * dollarToEuro;
-}
-console.log(calculateDollarToEuro(sumForConvertion, dollarToEuro) + euroCurrency);
-
+console.log(convertCurrency(sumForConvertion, "RUB", "USD"));
+console.log(convertCurrency(sumForConvertion, "USD", "RUB"));
+console.log(convertCurrency(sumForConvertion, "RUB", "EUR"));
+console.log(convertCurrency(sumForConvertion, "EUR", "RUB"));
+console.log(convertCurrency(sumForConvertion, "EUR", "USD"));
+console.log(convertCurrency(sumForConvertion, "USD", "EUR"));
+console.log(convertCurrency(sumForConvertion, "USD", "JPY"));
