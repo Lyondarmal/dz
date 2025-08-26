@@ -5,8 +5,8 @@ const euroCurrency = '€';
 
 const rates = {
         RUB: { USD: 0.012, EUR: 0.011 },
-        USD: { RUB: 80.69, EUR 0.86 },
-        EUR: { RUB: 93.70, USD 1.16 }
+        USD: { RUB: 80.69, EUR: 0.86 },
+        EUR: { RUB: 93.70, USD: 1.16 }
 };
 const symbols = {
         RUB: rubleCurrency,
