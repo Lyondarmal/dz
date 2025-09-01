@@ -6,17 +6,16 @@ check(‘ssapdorw’, ‘wrong’) -> false */
 
 const password = 'abcdefg';
 
-function swapChars(str) {
-  return str[1] + str[6] + str[2] + str[4] + str[3] + str[0] + str[5];
+
+function crypto(password) {
+  return password[1] + password[6] + password[2] + password[4] + password[3] + password[0] + password[5];
 }
 
-function unswapChars(str) {
-  return str[5] + str[0] + str[2] + str[4] + str[3] + str[6] + str[1];
+function uncrypto(encrypted) {
+  return encrypted[5] + encrypted[0] + encrypted[2] + encrypted[4] + encrypted[3] + encrypted[6] + encrypted[1];
 }
-const password2 = unswapChars(swapChars(password));
 
-if(password === password2) {
-    console.log('true') 
-} else {
-    console.log('false')
+function check(original, encrypted) {
+  const decrypted = uncrypto(encrypted);
+  return original === decrypted;
 }
